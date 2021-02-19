@@ -1,0 +1,34 @@
+{
+  "name": "askvortsov/flarum-checklist",
+  "description": "Checklists for Flarum!",
+  "keywords": [
+    "flarum"
+  ],
+  "type": "flarum-extension",
+  "license": "MIT",
+  "require": {
+    "flarum/core": "^0.1.0-beta.15"
+  },
+  "authors": [
+    {
+      "name": "Alexander Skvortsov",
+      "email": "askvortsov@flarum.org",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Askvortsov\\FlarumChecklist\\": "src/"
+    }
+  },
+  "extra": {
+    "flarum-extension": {
+      "title": "Checklists",
+      "icon": {
+        "name": "far fa-check-square",
+        "backgroundColor": "#6932D1",
+        "color": "#fff"
+      }
+    },
+  }
+}
