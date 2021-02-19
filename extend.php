@@ -12,6 +12,7 @@
 namespace Askvortsov\FlarumChecklist;
 
 use Flarum\Extend;
+use s9e\TextFormatter\Configurator;
 
 return [
     (new Extend\Frontend('forum'))
