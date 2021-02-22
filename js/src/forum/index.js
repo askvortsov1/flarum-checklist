@@ -1,5 +1,6 @@
 import { extend } from 'flarum/extend';
 import CommentPost from 'flarum/components/CommentPost';
+import configureRichText from './configureRichText';
 
 app.initializers.add('askvortsov/flarum-checklist', () => {
   function toggleCheckbox(post, remainingCheckboxes, checked) {
@@ -36,4 +37,6 @@ app.initializers.add('askvortsov/flarum-checklist', () => {
 
   extend(CommentPost.prototype, 'oncreate', processChecklists);
   extend(CommentPost.prototype, 'onupdate', processChecklists);
+
+  configureRichText();
 });
