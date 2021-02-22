@@ -13,7 +13,7 @@ function splitListItemCheckbox(list_item_node, checkbox_node) {
       }
     }
 
-    const prevCheckbox = path[i].content.content[0];
+    const prevCheckbox = path[i] && path[i].content.content[0];
 
     if (!prevCheckbox || prevCheckbox.type !== checkbox_node) return false;
 
