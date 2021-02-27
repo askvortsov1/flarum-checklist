@@ -30,7 +30,10 @@
         "name": "far fa-check-square",
         "backgroundColor": "#6932D1",
         "color": "#fff"
-      }
+      },
+      "optionalDependencies": [
+        "flarum/bbcode"
+      ]
     }
   }
 }
