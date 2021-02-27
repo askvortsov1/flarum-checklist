@@ -25,6 +25,7 @@
   "extra": {
     "flarum-extension": {
       "title": "Checklists",
+      "category": "formatting",
       "icon": {
         "name": "far fa-check-square",
         "backgroundColor": "#6932D1",
