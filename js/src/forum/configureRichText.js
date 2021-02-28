@@ -1,4 +1,5 @@
 import { extend, override } from 'flarum/extend';
+import ChecklistButton from './components/ChecklistButton';
 import checkboxPlugin from './markdown-it/checkboxPlugin';
 import checkboxEditorPlugin from './proseMirror/checkboxEditorPlugin';
 import insertChecklistCommand from './proseMirror/insertChecklistCommand';
@@ -8,12 +9,12 @@ export default function configureRichText() {
   if (!('askvortsov-rich-text' in flarum.extensions)) return;
 
   const ProseMirrorMenu = require('@askvortsov-rich-text').components.ProseMirrorMenu;
-  const CommandButton = require('@askvortsov-rich-text').components.CommandButton;
+  const ChecklistButtonComponent = ChecklistButton();
 
   extend(ProseMirrorMenu.prototype, 'items', function (items) {
     items.add(
       'check_list',
-      CommandButton.component({
+      ChecklistButtonComponent.component({
         type: 'check_list',
         icon: 'fas fa-check-square',
         tooltip: app.translator.trans('askvortsov-checklist.forum.composer.checklist_tooltip'),
