@@ -1,22 +1,32 @@
 import { extend, override } from 'flarum/extend';
 import checkboxPlugin from './markdown-it/checkboxPlugin';
 import checkboxEditorPlugin from './proseMirror/checkboxEditorPlugin';
+import insertChecklistCommand from './proseMirror/insertChecklistCommand';
 import keymap from './proseMirror/keymap';
 
 export default function configureRichText() {
   if (!('askvortsov-rich-text' in flarum.extensions)) return;
 
-  // const ProseMirrorMenu = require('@askvortsov-rich-text').components.LinkButtonnu;
+  const ProseMirrorMenu = require('@askvortsov-rich-text').components.ProseMirrorMenu;
+  const CommandButton = require('@askvortsov-rich-text').components.CommandButton;
 
-  // extend(ProseMirrorMenu.prototype, 'items', function (items) {
-  //     items.add('check_list', LinkButton.component({
-  //         type: 'check_list',
-  //         icon: 'fas check-square',
-  //         tooltip: app.translator.trans('askvortsov-pipetables.forum.composer.table_tooltip'),
-  //         state: this.attrs.state,
-  //         listType: this.attrs.state.getSchema().nodes.task_list,
-  //     }), 10);
-  // });
+  extend(ProseMirrorMenu.prototype, 'items', function (items) {
+    items.add(
+      'check_list',
+      CommandButton.component({
+        type: 'check_list',
+        icon: 'fas fa-check-square',
+        tooltip: app.translator.trans('askvortsov-checklist.forum.composer.checklist_tooltip'),
+        state: this.attrs.state,
+        command: insertChecklistCommand(
+          this.attrs.state.getSchema().nodes.bullet_list,
+          this.attrs.state.getSchema().nodes.list_item,
+          this.attrs.state.getSchema().nodes.list_checkbox
+        ),
+      }),
+      10
+    );
+  });
 
   const MarkdownSerializerBuilder = require('@askvortsov-rich-text').proseMirror.markdown.MarkdownSerializerBuilder;
 
@@ -75,7 +85,7 @@ export default function configureRichText() {
 
   extend(ProseMirrorEditorDriver.prototype, 'buildInputRules', function (items) {
     items.push(
-      new InputRule(/^\[([ |x])\] $/, function (state, match, start, end) {
+      new InputRule(/^\[([ |x]?)\] $/, function (state, match, start, end) {
         const $from = state.selection.$from;
         if (
           $from.depth >= 3 &&
