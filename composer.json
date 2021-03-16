@@ -6,9 +6,14 @@
   ],
   "type": "flarum-extension",
   "license": "MIT",
+  "support": {
+    "issues": "https://github.com/askvortsov1/flarum-checklist/issues",
+    "source": "https://github.com/askvortsov1/flarum-checklist",
+    "forum": "https://discuss.flarum.org/d/26457-checklists"
+  },
   "require": {
-    "flarum/core": "^0.1.0-beta.15",
-    "flarum/markdown": "^0.1.0-beta.15"
+    "flarum/core": "^0.1.0-beta.16",
+    "flarum/markdown": "^0.1.0-beta.16"
   },
   "authors": [
     {
@@ -25,7 +30,7 @@
   "extra": {
     "flarum-extension": {
       "title": "Checklists",
-      "category": "formatting",
+      "category": "feature",
       "icon": {
         "name": "far fa-check-square",
         "backgroundColor": "#6932D1",
