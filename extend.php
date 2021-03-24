@@ -19,10 +19,15 @@ return [
         ->js(__DIR__.'/js/dist/forum.js')
         ->css(__DIR__.'/resources/less/forum.less'),
 
+    (new Extend\Frontend('admin'))
+        ->js(__DIR__ . '/js/dist/admin.js'),
+
     new Extend\Locales(__DIR__.'/resources/locale'),
 
     (new Extend\Formatter())
         ->configure(function (Configurator $config) {
             $config->TaskLists;
         }),
+
+    (new Extend\Settings())->serializeToForum('askvortsov-checklist.cross_out_completed_items', 'askvortsov-checklist.cross_out_completed_items', 'boolval', true)
 ];

@@ -1,6 +1,13 @@
 import { extend } from 'flarum/extend';
+import Application from 'flarum/common/Application';
 import CommentPost from 'flarum/components/CommentPost';
 import configureRichText from './configureRichText';
+
+extend(Application.prototype, 'boot', function () {
+  if (this.forum.attribute('askvortsov-checklist.cross_out_completed_items')) {
+    $('.App').addClass('checklist-cross-completed');
+  }
+});
 
 app.initializers.add('askvortsov/flarum-checklist', () => {
   function toggleCheckbox(post, remainingCheckboxes, checked) {
