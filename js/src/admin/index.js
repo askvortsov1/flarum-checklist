@@ -1,4 +1,5 @@
 import configureRichText from '../common/configureRichText';
+import configureStrikeOut from '../common/configureStrikeOut';
 
 app.initializers.add('askvortsov/flarum-checklist', () => {
   app.extensionData.for('askvortsov-checklist').registerSetting({
@@ -8,4 +9,5 @@ app.initializers.add('askvortsov/flarum-checklist', () => {
   });
 
   configureRichText();
+  configureStrikeOut();
 });
