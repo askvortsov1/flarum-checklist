@@ -17,7 +17,7 @@ export default function configureRichText() {
       ChecklistButtonComponent.component({
         type: 'check_list',
         icon: 'fas fa-check-square',
-        tooltip: app.translator.trans('askvortsov-checklist.forum.composer.checklist_tooltip'),
+        tooltip: app.translator.trans('askvortsov-checklist.lib.composer.checklist_tooltip'),
         state: this.attrs.state,
         command: insertChecklistCommand(
           this.attrs.state.getSchema().nodes.bullet_list,
