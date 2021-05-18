@@ -1,7 +1,7 @@
 import { extend } from 'flarum/extend';
 import Application from 'flarum/common/Application';
 import CommentPost from 'flarum/components/CommentPost';
-import configureRichText from './configureRichText';
+import configureRichText from '../common/configureRichText';
 
 extend(Application.prototype, 'boot', function () {
   if (this.forum.attribute('askvortsov-checklist.cross_out_completed_items')) {
